@@ -54,9 +54,9 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Man")
         {
             Destroy(collision.gameObject);
-            GameObject.FindGameObjectWithTag("SuperMan").gameObject.GetComponent<SuperMan>().CountLife -= 1;
+            GameObject.FindGameObjectWithTag("SuperMan").gameObject.GetComponent<SuperMan>().ReducedCountLifeSM();
             Debug.Log("-1 life");
-            GUI.ReducedNumberSignLife();
+
         }
     }
 

@@ -23,10 +23,10 @@ public class Ghost : MonoBehaviour
     {
         if (collision.gameObject.tag == "SuperMan")
         {
-            _superMan.GetComponent<SuperMan>().CountLife -= 1;
+            collision.gameObject.GetComponent<SuperMan>().ReducedCountLifeSM();
             Debug.Log("-1 life");
-            Destroy(gameObject);
-            GUI.ReducedNumberSignLife(); 
+            Destroy(GetComponent<Ghost>().gameObject);
+             
         }
     }
 

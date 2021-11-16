@@ -13,7 +13,6 @@ public class SuperMan : MonoBehaviour
     public int CountLife
     {
         get { return _countLife; }
-        set { _countLife = value; }
     }
 
     private void Start()
@@ -77,4 +76,10 @@ public class SuperMan : MonoBehaviour
             Destroy(gameObject);
         }
     } 
+
+    public void ReducedCountLifeSM()
+    {
+        _countLife -= 1;
+        GUI.ReducedNumberSignLife();
+    }
 }
