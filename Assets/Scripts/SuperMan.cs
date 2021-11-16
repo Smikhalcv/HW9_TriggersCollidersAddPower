@@ -73,6 +73,7 @@ public class SuperMan : MonoBehaviour
     {
         if (_countLife <= 0)
         {
+            Time.timeScale = 0;
             Destroy(gameObject);
         }
     } 

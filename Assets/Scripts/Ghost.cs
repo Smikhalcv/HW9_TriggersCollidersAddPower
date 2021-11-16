@@ -21,13 +21,12 @@ public class Ghost : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == _superMan)
+        if (collision.gameObject.tag == "SuperMan")
         {
             _superMan.GetComponent<SuperMan>().CountLife -= 1;
             Debug.Log("-1 life");
             Destroy(gameObject);
-            GUI signLife = Camera.main.GetComponent<GUI>();
-            signLife.ReducedNumberSignLife();
+            GUI.ReducedNumberSignLife(); 
         }
     }
 

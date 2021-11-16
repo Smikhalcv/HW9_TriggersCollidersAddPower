@@ -56,8 +56,7 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);
             GameObject.FindGameObjectWithTag("SuperMan").gameObject.GetComponent<SuperMan>().CountLife -= 1;
             Debug.Log("-1 life");
-            GUI signLife = Camera.main.GetComponent<GUI>();
-            signLife.ReducedNumberSignLife();
+            GUI.ReducedNumberSignLife();
         }
     }
 
