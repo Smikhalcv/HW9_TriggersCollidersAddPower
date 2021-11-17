@@ -6,7 +6,7 @@ public class Board : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Ghost")
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Ghost"))
         {
             Destroy(other.gameObject);
         }

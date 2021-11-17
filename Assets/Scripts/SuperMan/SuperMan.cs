@@ -18,6 +18,7 @@ public class SuperMan : MonoBehaviour
     private void Start()
     {
         placePlayer = transform.position;
+        Time.timeScale = 1;
     }
     private void FixedUpdate()
     {
@@ -59,12 +60,17 @@ public class SuperMan : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<Enemy>().GetStrike = true;
             Rigidbody targetRigid = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 direction = collision.transform.position - transform.position;
             targetRigid.AddForce(direction * _power, ForceMode.Acceleration);
+        }
+        if (collision.gameObject.CompareTag("Ghost"))
+        {
+            Destroy(collision.gameObject);
+            ReducedCountLifeSM();
         }
     }
 

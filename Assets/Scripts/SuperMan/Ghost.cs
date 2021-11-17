@@ -19,15 +19,4 @@ public class Ghost : MonoBehaviour
         _gameObjectRigid.velocity = _direction;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "SuperMan")
-        {
-            collision.gameObject.GetComponent<SuperMan>().ReducedCountLifeSM();
-            Debug.Log("-1 life");
-            Destroy(GetComponent<Ghost>().gameObject);
-             
-        }
-    }
-
 }

@@ -13,6 +13,15 @@ public class GUI : MonoBehaviour
     [SerializeField] float _signLifeY;
     [SerializeField] float _signLifeZ;
 
+    [SerializeField] Text _outPutScore;
+
+    private int _score = 0;
+    public int Score
+    {
+        get { return _score; }
+        set { _score = value; }
+    }
+
     void Start()
     {
         _countLifeSuperMan = GameObject.FindGameObjectWithTag("SuperMan").GetComponent<SuperMan>().CountLife;
@@ -25,10 +34,9 @@ public class GUI : MonoBehaviour
         _listSignCountLife = new List<GameObject>(GameObject.FindGameObjectsWithTag("SignLife"));
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        _outPutScore.text = _score.ToString();
     }
 
     public static void ReducedNumberSignLife()

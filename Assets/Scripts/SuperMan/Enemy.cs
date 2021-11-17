@@ -49,17 +49,6 @@ public class Enemy : MonoBehaviour
         transform.position = Vector3.MoveTowards(_position, _target, _speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Man")
-        {
-            Destroy(collision.gameObject);
-            GameObject.FindGameObjectWithTag("SuperMan").gameObject.GetComponent<SuperMan>().ReducedCountLifeSM();
-            Debug.Log("-1 life");
-
-        }
-    }
-
     private void FindTarget()
     {
         _position = transform.position;
