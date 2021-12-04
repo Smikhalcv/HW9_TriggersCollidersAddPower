@@ -10,6 +10,7 @@ public class Ghost : MonoBehaviour
     private Vector3 _direction;
     private Rigidbody _gameObjectRigid;
 
+
     void Start()
     {
         _superMan = GameObject.FindGameObjectWithTag("SuperMan");
@@ -17,6 +18,7 @@ public class Ghost : MonoBehaviour
         _gameObjectRigid = GetComponent<Rigidbody>();
         _direction = _targetPos.normalized * _power;
         _gameObjectRigid.velocity = _direction;
+
     }
 
 }

@@ -9,6 +9,12 @@ TagManager:
   - Ghost
   - Man
   - SignLife
+  - UI
+  - WhiteBall
+  - BlackBall
+  - Cue
+  - ButtonE
+  - Hatch
   layers:
   - Default
   - TransparentFX

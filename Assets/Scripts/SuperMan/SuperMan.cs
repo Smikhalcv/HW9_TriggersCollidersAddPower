@@ -15,6 +15,8 @@ public class SuperMan : MonoBehaviour
         get { return _countLife; }
     }
 
+    [SerializeField] AudioSource _soundStrike;
+
     private void Start()
     {
         placePlayer = transform.position;
@@ -66,6 +68,7 @@ public class SuperMan : MonoBehaviour
             Rigidbody targetRigid = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 direction = collision.transform.position - transform.position;
             targetRigid.AddForce(direction * _power, ForceMode.Acceleration);
+            _soundStrike.Play();
         }
         if (collision.gameObject.CompareTag("Ghost"))
         {

@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
         set { _getStrike = value; }
     }
 
+
     System.Random rnd = new System.Random();
 
     private void Start()
