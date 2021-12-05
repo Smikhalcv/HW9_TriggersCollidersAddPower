@@ -19,7 +19,6 @@ public class Holes : MonoBehaviour
     {
         if (other.gameObject.CompareTag("WhiteBall"))
         {
-            Debug.Log("Remove gameObject White ball");
             BlackBall.RemoveBallFromList(other.gameObject);
             Destroy(other.gameObject);
         }

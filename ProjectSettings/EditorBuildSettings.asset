@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PoolScene.unity
     guid: 420f96c42e02c0c4fbd5b6ef8b3851fa
+  - enabled: 1
+    path: Assets/Scenes/GravityScene.unity
+    guid: 9105c2c032e8a454b817bc21902ec4f9
   m_configObjects: {}

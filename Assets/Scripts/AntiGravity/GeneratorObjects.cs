@@ -29,8 +29,7 @@ public class GeneratorObjects : MonoBehaviour
 
     private void DumpingObject()
     {
-        GameObject droppedObject = _arrayGameObjects[_rnd.Next(_countObjects)];
-        
+        GameObject droppedObject = _arrayGameObjects[_rnd.Next(_countObjects)];        
         droppedObject.transform.position = transform.position;
         Instantiate(droppedObject);
     }

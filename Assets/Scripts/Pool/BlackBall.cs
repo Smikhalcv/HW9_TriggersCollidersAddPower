@@ -53,7 +53,6 @@ public class BlackBall : MonoBehaviour
 
     public static void RemoveBallFromList(GameObject ball)
     {
-        Debug.Log("Remove ball from list");
         _listWhiteBall.Remove(ball);
     }
 

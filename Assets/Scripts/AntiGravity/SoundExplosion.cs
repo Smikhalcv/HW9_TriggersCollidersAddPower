@@ -7,7 +7,6 @@ public class SoundExplosion : MonoBehaviour
     private void Start()
     {
         _timeSound = gameObject.GetComponent<AudioSource>().clip.length;
-        Debug.Log(_timeSound);
     }
 
     private void Update()
