@@ -1,17 +1,13 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BlackBall : MonoBehaviour
 {
     [SerializeField] float _power;
     private static List<GameObject> _listWhiteBall;
-    private Vector3 _diraction;
-    private Vector3 _randomTarget;
-    System.Random rnd = new System.Random();
+    [SerializeField] private float _limitSpeed;
     [SerializeField] float _pause;
-    private float _timer;
     private Rigidbody _rigBalckBall;
     private float _minHieghtBall = -10;
 
@@ -26,50 +22,32 @@ public class BlackBall : MonoBehaviour
     [SerializeField] float _distanceCueZ;
 
 
-
     void Start()
     {
         _listWhiteBall = new List<GameObject>(GameObject.FindGameObjectsWithTag("WhiteBall"));
-        _randomTarget = _listWhiteBall[rnd.Next(_listWhiteBall.Count)].transform.position;
-        _diraction = _randomTarget - transform.position;
-        _timer = _pause;
         _rigBalckBall = gameObject.GetComponent<Rigidbody>();
         GetCue();
     }
 
     void Update()
     {
-        if (_rigBalckBall.velocity.x <= 0.01f && _rigBalckBall.velocity.y <= 0.01f && _rigBalckBall.velocity.z <= 0.01f && _haveCue == false)
+        if (_rigBalckBall.velocity.x <= Math.Abs(_limitSpeed) && _rigBalckBall.velocity.y <= Math.Abs(_limitSpeed)
+            && _rigBalckBall.velocity.z <= Math.Abs(_limitSpeed) && _haveCue == false)
         {
             ButtonE.GetCue = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (_haveCue == false)
-                {
-                    GetCue();
-                }
+                GetCue();
             }
-            
+        }
+        else
+        {
+            ButtonE.GetCue = false;
         }
         if (transform.position.y <= _minHieghtBall)
         {
             Destroy(gameObject);
             Holes.ReturnBlackBall();
-        }
-    }
-
-    private void Strike()
-    {
-        if (_listWhiteBall.Count > 0)
-        {
-            _randomTarget = _listWhiteBall[rnd.Next(_listWhiteBall.Count)].transform.position;
-            _diraction = _randomTarget - transform.position;
-            gameObject.GetComponent<Rigidbody>().AddForce(_diraction.normalized * _power, ForceMode.Impulse);
-            _timer = _pause;
-        }
-        else
-        {
-            Time.timeScale = 0;
         }
     }
 
@@ -96,7 +74,6 @@ public class BlackBall : MonoBehaviour
         {
             Destroy(collision.gameObject);
             _haveCue = false;
-            
         }
     }
 }

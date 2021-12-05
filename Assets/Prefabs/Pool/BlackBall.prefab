@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _power: 15
+  _limitSpeed: 0.05
   _pause: 3
   _cue: {fileID: 553753710958398687, guid: 4aba2a0b5c4ae7b429e1a14084b4a50c, type: 3}
   _distanceCueY: 1

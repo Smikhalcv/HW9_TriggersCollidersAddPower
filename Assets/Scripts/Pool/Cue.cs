@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cue : MonoBehaviour
 {
     private GameObject _blackBall;
     private Vector3 _centerRotation;
-    private Quaternion _angleRotation;
     private Vector3 _axisRotation = new Vector3(0, 1, 0);
     private Rigidbody _rigidCue;
     [SerializeField] float _speedRotaion;
@@ -16,7 +13,6 @@ public class Cue : MonoBehaviour
     {
         _blackBall = GameObject.FindGameObjectWithTag("BlackBall");
         _centerRotation = _blackBall.transform.position;
-        _angleRotation = transform.rotation;
         _rigidCue = gameObject.GetComponent<Rigidbody>();
     }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
@@ -10,7 +8,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float _powerExplosion;
     private Rigidbody[] _arraytGameObject;
     private GameObject _hatch;
-    private AudioSource _soundExplosion;
+    [SerializeField] private GameObject _soundExplosion;
 
 
     private void Start()
@@ -30,7 +28,6 @@ public class Bomb : MonoBehaviour
 
     private void Explosion()
     {
-        PlaySoundExplosion();
         _arraytGameObject = FindObjectsOfType<Rigidbody>();
         foreach (Rigidbody item in _arraytGameObject)
         {
@@ -43,15 +40,14 @@ public class Bomb : MonoBehaviour
                 item.AddForce(direction.normalized * explosivePower * _powerExplosion, ForceMode.Impulse);
             }                
         }
-        Destroy(gameObject);
+        SoundExplosion();
         _hatch.GetComponent<DropBomb>().HaveBomb = false;
+        Destroy(gameObject);
     }
 
-    private void PlaySoundExplosion()
+    private void SoundExplosion()
     {
-        _soundExplosion = gameObject.GetComponent<AudioSource>();
-        Debug.Log($"{_soundExplosion.clip}");
-        Debug.Log($"{_soundExplosion.clip.name}");
-        _soundExplosion.Play();
+        Instantiate(_soundExplosion);
+        _soundExplosion.transform.position = transform.position;
     }
 }

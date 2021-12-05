@@ -81,6 +81,7 @@ MonoBehaviour:
   _timeToExplosion: 2
   _radiusExplosion: 100
   _powerExplosion: 10000
+  _soundExplosion: {fileID: 6479146833234065085, guid: aee6b3b7547a4034e86074b855f7d8f2, type: 3}
 --- !u!82 &1380165699759864185
 AudioSource:
   m_ObjectHideFlags: 0
